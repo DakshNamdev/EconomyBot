@@ -75,6 +75,9 @@ General:
           - Type: "User"
             Name: "target"
             Description: "User Mention"
+
+###
+
 Admin:
   Eval:
     Description: "Runs JavaScript code"
@@ -93,3 +96,25 @@ Admin:
             Name: "code"
             Description: "JavaScript code"
             Required: true
+
+###
+
+Economy:
+  Balance:
+    Description: "Shows the user’s or the provided user’s current balance"
+    Usage: "balance [@user]"
+    Aliases: ["bal"]
+    Permission:
+      - "@everyone"
+    AllowedChannels: false
+    DeleteCommand: false
+    SlashCommand:
+      Enabled: true
+      Data:
+        Name: balance
+        Description: "Shows the user’s or the provided user’s current balance"
+        Options:
+          - Type: "User"
+            Name: "target"
+            Description: "User to view balance of"
+            Required: false

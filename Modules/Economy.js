@@ -132,20 +132,23 @@ module.exports = class EcoUser {
      * @param {String} userID
      * @param {Number} amount
      */
-    async payUser(userID, amount) {
+    async payUser(userID, amount = 0) {
         return new Promise(async (resolve, reject) => {
             try {
+                if(isNaN(amount))
+                    return reject("Amount must be a whole number.");
+                else if(amount < 1)
+                    return reject(`ZeroOrNegativeAmount`);
+                else if(config.Economy.Pay.MinCoins > amount)
+                    return reject(`Amount less then MinCoins.`);
+                else if(config.Economy.Pay.MaxCoins < amount)
+                    return reject(`Amount more then MaxCoins.`);
+
                 const currentBalance = await this.getBalance();
                 if(currentBalance < amount)
-                    throw new Error("Insufficient balance.");
+                    return reject(`Insufficient balance.`);
 
-                if(amount < config.Economy.Pay.MinCoins)
-                    throw new Error(`Amount must be at least ${config.Economy.Pay.MinCoins} coins.`);
-                else if(amount > config.Economy.Pay.MaxCoins)
-                    throw new Error(`Amount must be at most ${config.Economy.Pay.MaxCoins} coins.`);
-
-
-                const targetUser = new EcoUser(this.db, userID, this.guildID);
+                const targetUser = new EcoUser(this.db, this.guildID, userID);
                 const targetResult = await targetUser.addCoins(amount);
                 const currentUserResult = await this.removeCoins(amount);
 

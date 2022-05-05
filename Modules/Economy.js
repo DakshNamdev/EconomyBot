@@ -33,7 +33,7 @@ module.exports = class EcoUser {
                 return resolve(!!result);
             })
         })
-    }
+    };
 
     /** @param {Number} balance */
     async createDatabaseEntry(balance = 0) {
@@ -49,7 +49,7 @@ module.exports = class EcoUser {
                 return resolve(balance);
             });
         });
-    }
+    };
 
     async getBalance() {
         return new Promise(async (resolve) => {
@@ -100,7 +100,7 @@ module.exports = class EcoUser {
                 return resolve(false);
             }
         });
-    }
+    };
 
     /** @param {Number} amount */
     async removeCoins(amount = 0) {
@@ -126,7 +126,7 @@ module.exports = class EcoUser {
                 return resolve(false);
             }
         });
-    }
+    };
 
     /**
      * @param {String} userID
@@ -164,7 +164,7 @@ module.exports = class EcoUser {
                 return resolve(false);
             }
         })
-    }
+    };
 };
 
 module.exports.fetchAllUsers = (db, guildID) => new Promise(async (resolve) => {
@@ -181,6 +181,6 @@ module.exports.fetchAllUsers = (db, guildID) => new Promise(async (resolve) => {
     } catch (error) {
         Utils.logError(`An error occurred while fetching all users`);
         if(process.argv.includes("--show-errors")) Utils.logError(error.stack);
-        return resolve([]);
+        return resolve(false);
     }
 });

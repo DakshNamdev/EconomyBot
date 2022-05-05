@@ -140,3 +140,16 @@ Economy:
             Name: "amount"
             Description: "Amount to pay"
             Required: true
+  LeaderBoard:
+    Description: "Shows the top richest users"
+    Usage: "leaderboard"
+    Aliases: ["cointop"]
+    Permission:
+      - "@everyone"
+    AllowedChannels: false
+    DeleteCommand: false
+    SlashCommand:
+      Enabled: true
+      Data:
+        Name: leaderboard
+        Description: "Shows the top richest users"

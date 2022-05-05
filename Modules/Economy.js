@@ -149,6 +149,7 @@ module.exports = class EcoUser {
                     return reject(`Insufficient balance.`);
 
                 const targetUser = new EcoUser(this.db, this.guildID, userID);
+                await targetUser.userExists(true);
                 const targetResult = await targetUser.addCoins(amount);
                 const currentUserResult = await this.removeCoins(amount);
 

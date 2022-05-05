@@ -123,7 +123,13 @@ Economy:
         Footer: '{brand-name}'
         FooterIcon: '{brand-logo}'
         Timestamp: true
-
+  LeaderBoard:
+    Embeds:
+      - Title: "💰 Economy • Leaderboard [{current-page}/{max-page}]"
+        Description: "{queue}"
+        Footer: '{brand-name}'
+        FooterIcon: '{brand-logo}'
+        Timestamp: true
 ###
 
 Presets:

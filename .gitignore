@@ -1,0 +1,36 @@
+# IDE
+.history/
+.vscode/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# NPM & Yarn
+node_modules/
+yarn.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Extra Files
+errors.txt
+WebServerLog.txt
+config.yml
+config.json
+Addons/
+Addon_Configs/
+EvoTickets/
+disposal/
+*.db
+*.sqlite
+*.bak
+
+# Github
+.github/
+README.md
+egg-brayan-bot-v17.json

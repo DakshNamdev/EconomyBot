@@ -103,7 +103,7 @@ Economy:
   Balance:
     Description: "Shows the user’s or the provided user’s current balance"
     Usage: "balance [@user]"
-    Aliases: ["bal"]
+    Aliases: [ "bal" ]
     Permission:
       - "@everyone"
     AllowedChannels: false
@@ -118,3 +118,25 @@ Economy:
             Name: "target"
             Description: "User to view balance of"
             Required: false
+  Pay:
+    Description: "Pays a user"
+    Usage: "pay <@user> <amount>"
+    Aliases: [ "bal" ]
+    Permission:
+      - "@everyone"
+    AllowedChannels: false
+    DeleteCommand: false
+    SlashCommand:
+      Enabled: true
+      Data:
+        Name: pay
+        Description: "Pays a user"
+        Options:
+          - Type: "User"
+            Name: "target"
+            Description: "User to pay"
+            Required: true
+          - Type: "Integer"
+            Name: "amount"
+            Description: "Amount to pay"
+            Required: true

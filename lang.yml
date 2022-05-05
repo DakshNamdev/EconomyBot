@@ -86,6 +86,9 @@ General:
           Style: Link
           Label: Avatar
           Link: '{link}'
+
+###
+
 Admin:
   Eval:
     Embeds:
@@ -102,6 +105,26 @@ Admin:
         Footer: '{user-tag}'
         FooterIcon: '{user-pfp}'
         Timestamp: true
+
+###
+
+Economy:
+  Balance:
+    Embeds:
+      - Title: "💰 Economy • Balance"
+        Description: "> {target-mention} current has **{target-balance}** coins."
+        Footer: '{brand-name}'
+        FooterIcon: '{brand-logo}'
+        Timestamp: true
+  Pay:
+    Embeds:
+      - Title: "💰 Economy • Pay"
+        Description: "> {target-mention} has been paid **{amount}** coins."
+        Footer: '{brand-name}'
+        FooterIcon: '{brand-logo}'
+        Timestamp: true
+
+###
 
 Presets:
   NoPermission:

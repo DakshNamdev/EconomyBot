@@ -61,4 +61,35 @@ installNodeModules().then(async () => {
     if (client.config.Settings.Token)
         client.login(client.config.Settings.Token);
     else return Utils.logError("An invalid token was provided.");
+
+    const mysql = require("mysql");
+    module.exports.mysql = mysql.createConnection({
+        host: client.config.MySQL.Host,
+        port : client.config.MySQL.Port,
+        user: client.config.MySQL.User,
+        password: client.config.MySQL.Password
+    });
+
+    module.exports.mysql.connect(async (err) => {
+        if (err) {
+            if (err.message.startsWith('getaddrinfo ENOTFOUND') || err.message.startsWith("connect ECONNREFUSED")) {
+                Utils.logError("MySQL Connection Error: Could not connect to the database. Please check your MySQL settings.");
+                return process.exit();
+            } else return Utils.logError(err.stack);
+        }
+
+        const queries = [
+            "CREATE DATABASE IF NOT EXISTS " + client.config.MySQL.Database,
+            "USE " + client.config.MySQL.Database,
+            "CREATE TABLE IF NOT EXISTS coins (id INT NOT NULL AUTO_INCREMENT, " +
+                "guild VARCHAR(50) NOT NULL, user VARCHAR(50) NOT NULL, " +
+                `balance INT(255) NOT NULL DEFAULT '${client.config.Economy.DefaultCoins}', PRIMARY KEY (id));`,
+        ];
+
+        await Promise.all(
+            queries.map(query => new Promise(resolve => module.exports.mysql.query(query, err => err ? resolve(err) : resolve()))
+                .catch(err => Utils.logError(err.stack)))
+        ).then(() => Utils.logInfo("MySQL Connection Successful.")).catch(err => Utils.logError(err.stack))
+
+    });
 });

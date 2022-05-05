@@ -2,7 +2,20 @@ Settings:
   Token: "BOT-TOKEN"
   Prefix: "-"
   Storage: "database.db"
-  DevMode: false # This option will reset every addon configs.
+  DevMode: false # This option will reset all addon configs.
+
+MySQL:
+  Host: localhost
+  Port: 3306
+  User: root
+  Password: " "
+  Database: "EconomyBot"
+
+Economy:
+  DefaultCoins: 100
+  Pay:
+    MinCoins: 1
+    MaxCoins: 100
 
 Embeds:
   Color: "2f3136"

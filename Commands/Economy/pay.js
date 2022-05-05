@@ -1,7 +1,6 @@
 const Discord = require("discord.js"), Utils = require("../../Modules/Utils");
 const { lang, config, commands } = require("../../index");
 const Economy = require("../../Modules/Economy");
-const {message} = require("prompt");
 
 module.exports = {
     name: "pay",

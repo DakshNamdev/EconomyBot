@@ -60,10 +60,9 @@ module.exports.runSlash = async (bot, interaction, options) => {
     };*/
 
     const userEco = new Economy(require("../../index").mysql, interaction.guild.id, interaction.user.id);
+    const amount = randomNumber(config.Economy.Work.MinCoins, config.Economy.Work.MaxCoins);
     const task = tasks[randomNumber(0, tasks.length - 1)];
 
-    const amount = randomNumber(config.Economy.Work.MinCoins, config.Economy.Work.MaxCoins);
-    console.log(task);
     switch(task) {
         case "repeatmsg": {
             const randomMessage = randomMsgs[randomNumber(0, randomMsgs.length - 1)];

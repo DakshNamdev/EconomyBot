@@ -153,3 +153,16 @@ Economy:
       Data:
         Name: leaderboard
         Description: "Shows the top richest users"
+  Work:
+    Description: "Earn money by working"
+    Usage: "work"
+    Aliases: []
+    Permission:
+      - "@everyone"
+    AllowedChannels: false
+    DeleteCommand: false
+    SlashCommand:
+      Enabled: true
+      Data:
+        Name: work
+        Description: "Earn money by working"

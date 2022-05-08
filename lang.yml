@@ -130,6 +130,44 @@ Economy:
         Footer: '{brand-name}'
         FooterIcon: '{brand-logo}'
         Timestamp: true
+  Work:
+    OnCooldown:
+      Embeds:
+        - Title: "💰 Economy • Work"
+          Description: "> You can't work for now, try again **{cooldown}**."
+          Footer: '{brand-name}'
+          FooterIcon: '{brand-logo}'
+          Timestamp: true
+    Success:
+      Embeds:
+        - Title: "💰 Economy • Work"
+          Description: "> You successfully finished your task and you were given **{amount}** coins."
+          Footer: '{brand-name}'
+          FooterIcon: '{brand-logo}'
+          Timestamp: true
+    TaskFailed:
+      Embeds:
+        - Title: "💰 Economy • Work"
+          Description: "> You failed to work, try again later."
+          Footer: '{brand-name}'
+          FooterIcon: '{brand-logo}'
+          Timestamp: true
+    Tasks:
+      RandomMessage:
+        Embeds:
+          - Title: "💰 Economy • Work"
+            Description: "Your task is to **Repeat following Message**.\n\n> Type & Send following message in chat to complete this task.\n```\n{message}```"
+            Footer: '{brand-name}'
+            FooterIcon: '{brand-logo}'
+            Timestamp: true
+      SolveMath:
+        Embeds:
+          - Title: "💰 Economy • Work"
+            Description: "Your task is to **Solve following Math Question**.\n\n> Type & Send following question's solution in chat to complete this task.\n```\n{message}```"
+            Footer: '{brand-name}'
+            FooterIcon: '{brand-logo}'
+            Timestamp: true
+
 ###
 
 Presets:

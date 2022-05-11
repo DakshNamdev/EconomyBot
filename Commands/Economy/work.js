@@ -47,7 +47,7 @@ const mathQuestions = [...config.Economy.Work.Tasks.SolveMath];
 module.exports.runSlash = async (bot, interaction, options) => {
     await interaction.deferReply();
 
-    /*const isOnCooldown = checkCooldown(interaction.user, true);
+    const isOnCooldown = checkCooldown(interaction.user, true);
     if (isOnCooldown) {
         const cooldown = moment(cooldowns.get(interaction.user.id)).fromNow();
         return interaction.editReply(Utils.setupMessage({
@@ -57,7 +57,7 @@ module.exports.runSlash = async (bot, interaction, options) => {
                 ...Utils.userVariables(interaction.member, 'user'),
             ]
         }))
-    };*/
+    };
 
     const userEco = new Economy(require("../../index").mysql, interaction.guild.id, interaction.user.id);
     const amount = randomNumber(config.Economy.Work.MinCoins, config.Economy.Work.MaxCoins);
